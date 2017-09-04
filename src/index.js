@@ -319,7 +319,7 @@ class ABTest {
         };
 
         // Log the session ID object to the console
-        console.log(sessionId);
+        console.log("Session ID:", sessionId);
 
         this.overlay.classList.add('show');
         this.modal.classList.add('show');
@@ -394,7 +394,7 @@ class ABTest {
             // Do the submit
             
             // Log the data
-            console.log(data);
+            console.log("Form Data:", data);
 
             // Show the success message
             document.getElementById('quote_message').classList.add('show');
