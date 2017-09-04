@@ -1,23 +1,112 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>A/B Test page</title>
-  <meta name="author" content="Arthur McLean">
-  <meta name="description" content="A/B Testing demo">
-  </head>
-  <body>
-	Arthur was here...  
-  <script type="text/javascript">
-   function autorun()
-   {
-    
-   }
-   if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
-   else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
-   else window.onload = autorun;
-  </script>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>A/B Test page</title>
+        <meta name="author" content="Arthur McLean">
+        <meta name="description" content="A/B Testing demo">
+        <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript" src="app/index.js"></script>
+    </head>
+    <body>
+        <main class="grid-x align-center align-middle">
+            <div class="shrink cell text-center">
+                <div id="quote_message" class="callout success">
+                    <p>Your price quote is on the way!</p>
+                </div>
+                <button id="price_button" type="button" class="button radius secondary large">Get a Price Quote</button>
+            </div>
+        </main>
+
+        <section id="overlay" class="reveal-overlay">
+            <div id="modal" class="reveal modal">
+                <!-- Header row -->
+                <div class="grid-x align-right modal-header">
+                    <div class="shrink cell">
+                        <button type="button" id="close_button" class="close-button" aria-label="Close Modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modal Body -->
+                <form
+                    name="price_quote_form"
+                    id="price_quote_form"
+                    method="post"
+                    novalidate
+                >
+                    <div class="grid-x">
+                        <!-- Left Side -->
+                        <div class="small-6 cell">
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell">
+                                    <label class="show-for-sr" for="price_quote_name">Name</label>
+                                    <input type="text" placeholder="Name" name="price_quote_name" id="price_quote_name" required>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell">
+                                    <label class="show-for-sr" for="price_quote_email">Email</label>
+                                    <input type="email" placeholder="Email" name="price_quote_email" id="price_quote_email" required>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell">
+                                    <label class="show-for-sr" for="price_quote_phone">Phone</label>
+                                    <input type="tel" placeholder="Phone" name="price_quote_phone" id="price_quote_phone" required>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell">
+                                    <label class="show-for-sr" for="price_quote_address">Address</label>
+                                    <input type="text" placeholder="Address" name="price_quote_address" id="price_quote_address" required>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell">
+                                    <label class="show-for-sr" for="price_quote_city">City</label>
+                                    <input type="text" placeholder="City" name="price_quote_city" id="price_quote_city" required>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x">
+                                <div class="small-6 cell">
+                                    <label class="show-for-sr" for="price_quote_state">State</label>
+                                    <select name="price_quote_state" id="price_quote_state" class="placeholder" placeholder="State" required>
+                                        <option>State</option>
+                                    </select>
+                                </div>
+                                <div class="small-6 cell">
+                                    <label class="show-for-sr" for="price_quote_zip">Zip Code</label>
+                                    <input type="text" placeholder="Zip Code" name="price_quote_zip" id="price_quote_zip" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right side -->
+                        <div class="small-6 cell text-center">
+                            <div>
+                                <img id="price_quote_image" alt="Price Quote Image">
+                            </div>
+                            <div class="submit-container">
+                                <input type="submit" name="submit" value="Submit" class="button radius large">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+         
+        <script type="text/javascript">
+            function autorun() {
+                // Kick things off
+                var button = new ABTest();
+            }
+            if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+            else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+            else window.onload = autorun;
+        </script>
+    </body>
 </html>

@@ -1,0 +1,145 @@
+@import '../node_modules/foundation-sites/scss/foundation';
+
+$global-flexbox: true;
+
+// Only include the bits of Foundation we actually need
+@include foundation-global-styles;
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+@include foundation-visibility-classes;
+@include foundation-callout;
+@include foundation-reveal;
+
+// Define the color scheme (only setting colors that are used more than once)
+$white: #fff;
+$light-gray: #cacaca;
+$dark-gray: #4d4d4d;
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    background: $white;
+    color: $dark-gray;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    line-height: 1;
+    cursor: default;
+}
+
+main {
+    height: 100vh;
+}
+
+#quote_message {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
+
+button, .button {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: 700;
+}
+
+.button.secondary {
+    background-color: #ff851f;
+    border-color: #e56800;
+    color: $white;
+    &:hover, &:active, &:focus {
+        background-color: #eb6b00;
+    }
+}
+
+// Removed in Foundation 6
+button.radius, .button.radius {
+    border-radius: 3px;
+}
+
+
+.reveal-overlay {
+    &.show {
+        display: block;
+    }
+}
+
+.modal {
+    background-color: rgba(244,249,253,1);
+    box-shadow: 0 10px 20px rgba(52,78,103,.1);
+    border: 1px solid rgba(52,78,103,.15);
+    border-radius: 6px;
+    
+    &.show {
+        display: block;
+    }
+}
+
+// Turn off the border radius when the modal goes full width
+@media screen and (max-width: 39.9375em) {
+    .modal {
+        border-radius: 0;
+    }
+}
+
+.modal-header {
+    margin-bottom: 20px;
+}
+
+.close-button {
+    cursor: pointer;
+}
+
+#price_quote_image {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+
+    &.show {
+        display: block;
+    }
+}
+
+.submit-container {
+    padding: 40px 0;
+}
+
+.placeholder {
+    color: $light-gray;
+}
+
+// Make sure options don't inherit the parent select class
+#price_quote_state {
+    option {
+        color: $dark-gray;
+    }
+}
+
+.error {
+    display: none;
+    padding: .375rem .5625rem .5625rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-size: .75rem;
+    font-style: italic;
+    background: #e75600;
+    font-weight: 400;
+    color: $white;
+
+    &.show {
+        display: block;
+    }
+}
